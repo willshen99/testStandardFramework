@@ -1,12 +1,11 @@
-library(dbplyr)
 library(dplyr)
 library(DBI)
 
 
 
 count_table <- function(con, table){
-  tbl <- tbl(con, table)
-  tbl %>%
+  t <- tbl(con, table)
+  t %>%
     count() %>%
     collect() %>%
     as.numeric()
